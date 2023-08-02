@@ -1,0 +1,4 @@
+#!/bin/bash
+. ./vars.env
+docker network create {{.Env.NETWORK}}
+docker-compose -f docker-compose.yml up -d

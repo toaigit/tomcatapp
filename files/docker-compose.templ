@@ -1,0 +1,17 @@
+version: '3.3'
+
+networks:
+  default:
+      name: {{.Env.NETWORK}}
+      external: true
+
+services:
+
+  mytomcat:
+        image: {{.Env.DOCKER_IMAGE}}
+        container_name: {{.Env.CONTAINER_NAME}}
+        restart: always
+        ports:
+                - "{{.Env.HOST_PORT}}:{{.Env.CONTAINER_PORT}}"
+        volumes: 
+          - {{.Env.DATADIR}}/log:/usr/local/tomcat/logs

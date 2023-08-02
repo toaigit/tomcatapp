@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+. ./vars.env
+docker network create {{.Env.NETWORK}}
+docker image build --build-arg USERUID={{.Env.USERID}} -t {{.Env.DOCKER_IMAGE}} .
